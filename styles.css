@@ -3,6 +3,22 @@
     margin: 0;
     padding: 0;
   }
+
+  :root{
+    --background-color: hsl(0, 0%, 100%);
+
+    --body-background: hsl(30, 54%, 90%);
+    --lines-color: hsl(30, 10%, 34%);
+    --main-font: hsl(24, 5%, 18%);
+
+
+    /* --headers is a colour of markers too */
+    --headers: hsl(14, 45%, 36%);
+
+    /* --preparationTime-header changes colour of bullets within class too */
+    --preparationTime-header: hsl(332, 51%, 32%); 
+    --preparationTime-background: hsl(330, 100%, 98%);
+  }
   
   body{
     display: flex;
@@ -10,13 +26,14 @@
     height: 100%;
     align-items: center;
     justify-content: center;
-    background-color: hsl(30, 54%, 90%);
+    background-color: var(--body-background);
     padding: 10px;
     font-family: "Inter", serif;
   }
 
   .container{
-    background-color: hsl(0, 0%, 100%);
+    background-color: var(--background-color);
+    color: var(--main-font);
     padding: 2rem;
     margin: 6rem auto;
     border-radius: 1.5rem;
@@ -45,6 +62,7 @@
   hr{
     height: 1px;
     margin: 2rem 0.1rem;
+    color: var(--lines-color);
   }
   
   h1,h2{
@@ -54,15 +72,16 @@
     margin-bottom: 15px;
   }
 
-  h2{
+  .brown{
     margin-bottom: 15px;
     font-size: 1.5rem;
+    color: var(--headers);  
+    font-weight: bold;
   }
   
   li{
     list-style-position: inside;
   }
-
 
   ul,ol{
     padding-left: 20px;
@@ -70,24 +89,26 @@
   }
 
   .preparationTime{
-    background-color: hsl(330, 100%, 98%);
+    background-color: var(--preparationTime-background);
+    font-family: Outfit, serif;
     h2{
-      color: hsl(332, 51%, 32%);
-      font-family: "Inter", serif;
-      font-weight: 700;
-      font-size: 18px;
-    }
+        color: var(--preparationTime-header);
+        font-family: "Inter", serif;
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
     line-height: 1.5rem;
     padding: 1.5rem 1.5rem;   
     border-radius: 1rem;
   }
 
   .preparationTime li::marker{
-    color: hsl(332, 51%, 32%);
+    color: var(--preparationTime-header);
   }
   
   .content li::marker{
-    color: hsl(14, 45%, 36%);
+    color: var(--headers);
     font-weight: bold;
   }
 
@@ -100,21 +121,45 @@
     margin-bottom: 15px;
   }
   
-  .brown{
-    color: hsl(14, 45%, 36%);
-    font-weight: bold;
+  table{
+    border-collapse: collapse; 
+  }
+
+  .table tr:last-child{
+    border-bottom: none;
+  }
+
+  .table td:last-child{
+    font-size: 1rem;
   }
   
-  table{
-    border-collapse: collapse;
-    
-  }
   tr{
     border-bottom: 1px solid black;
-    
+    border-color: var(--lines-color);  
   }
+
   td{ 
     padding: 15px;
+    padding-left: 25px;
+    
+  }
+
+  @media screen and (max-width: 742.5px){
+    body{
+      padding: 0;
+      transition: ease 0.75s;
+    }
+
+    .container{
+      max-width: 100%;
+      margin: 0;
+      border-radius: 0%;
+    }
+
+    img{
+      width: 100%;
+      height: auto;
+    } 
   }
 
 
